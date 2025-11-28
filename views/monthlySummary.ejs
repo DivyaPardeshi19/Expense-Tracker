@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container my-4">
+    <h1 class="text-center mb-4">📊 Monthly Income vs Expense</h1>
+
+    <!-- Chart -->
+    <div class="card p-3 mb-4">
+      <canvas id="monthlyChart" style="max-height:400px;"></canvas>
+    </div>
+
+    <!-- Monthly Table -->
+    <div class="card p-3">
+      <h3>Monthly Summary Table</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Income (₹)</th>
+            <th>Expense (₹)</th>
+            <th>Balance (₹)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% monthlySummary.forEach(item => { %>
+            <tr>
+              <td><%= item.month %></td>
+              <td class="text-success">₹ <%= item.income.toLocaleString() %></td>
+              <td class="text-danger">₹ <%= item.expense.toLocaleString() %></td>
+              <td>₹ <%= item.balance.toLocaleString() %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div><br>
+
+    <div class="text-center mt-3">
+      <a href="/dashboard" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+  </div>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('monthlyChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: <%- JSON.stringify(months) %>,
+        datasets: [
+          {
+            label: 'Income',
+            data: <%- JSON.stringify(incomeData) %>,
+            backgroundColor: 'rgba(0, 200, 88, 0.7)'
+          },
+          {
+            label: 'Expense',
+            data: <%- JSON.stringify(expenseData) %>,
+            backgroundColor: 'rgba(255, 0, 0, 0.7)'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'top' },
+          title: { display: true, text: 'Monthly Income vs Expense' }
+        },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+  </script>
+  <footer class="footer mt-5 py-3 text-center">
+  <p class="mb-0">💰 Spend Wisely. Track Smartly.</p>
+  <small><b>Built with ❤️ by Divya!</b></small>
+</body>
+</html>

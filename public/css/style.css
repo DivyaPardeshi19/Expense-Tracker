@@ -1,0 +1,190 @@
+/* DARK MODE */
+body.dark-mode {
+  background: #121212;
+  color: #ffffff;
+}
+
+.card {
+  background: inherit;
+  color: inherit;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.table {
+  color: inherit;
+}
+.btn {
+  border-radius: 8px;
+}
+.dark-mode .card,
+.dark-mode .navbar {
+    background: #1e1e1e;
+    color: white;
+}
+
+/* ---------------- LIGHT MODE ---------------- */
+body.light-mode {
+    background-color: #f5f5f5;     /* light background */
+    color: #000;                   /* dark text */
+}
+
+.light-mode .card,
+.light-mode .navbar {
+    background: #ffffff;
+    color: #000;
+}
+
+.light-mode .btn {
+    border-color: #000;
+    color: #000;
+}
+
+.light-mode table th,
+.light-mode table td {
+    background-color: #fff;
+    color: #000;
+}
+
+.light-mode h1,
+.light-mode h2,
+.light-mode h3,
+.light-mode p,
+.light-mode label {
+    color: #000 !important;
+}
+
+.light-mode .name {
+    color: #00a884; /* highlight */
+}
+
+
+/* ------- DARK MODE (monthly summary) ------- */
+body.dark-mode #chartContainer {
+    background-color: #1e1e1e;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+/* ------- LIGHT MODE (monthly summary) ------- */
+body.light-mode #chartContainer {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+
+
+/* 🌙 GLOBAL STYLING */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #121212;
+  color: #ffffff;
+}
+
+a { text-decoration: none; }
+
+/* 🌙 NAVBAR */
+.navbar {
+  background: #1e1e1e;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+}
+
+.nav-left {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-left a {
+  color: #cccccc;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-left a:hover,
+.nav-left a.active {
+  color: #00ff88;
+}
+
+/* 🌙 USER ICON */
+.user-badge {
+  width: 40px;
+  height: 40px;
+  background: #7b5cf9;
+  color: white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* 🌙 BUTTONS */
+.btn {
+  padding: 10px 18px;
+  border: 1px solid #00ff88;
+  border-radius: 8px;
+  background: transparent;
+  color: #00ff88;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #00ff88;
+  color: black;
+}
+
+.btns:hover {
+  color: #000;
+  background-color: red;
+}
+
+/* 🌙 CARD BOXES */
+.card {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+  margin: 10px 0;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* 🌙 DASHBOARD GRID */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+/* 🌙 CHART AREA */
+.chart-box {
+  background: #1e1e1e;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.custom-btn {
+    background-color: #00ff88;
+    color: #000; /* text color, black works well on green */
+    border: none;
+}
+
+.custom-btn:hover {
+    background-color: #00e673; /* slightly darker on hover */
+    color: #000;
+}

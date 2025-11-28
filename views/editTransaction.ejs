@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <h2 class="text-center">Edit Transaction</h2>
+
+  <form action="/transactions/update/<%= transaction._id %>" method="POST" class="mt-3">
+
+
+      <div class="mb-3">
+          <label>Amount</label>
+          <input type="number" name="amount" class="form-control" value="<%= transaction.amount %>" required>
+      </div>
+
+      <div class="mb-3">
+          <label>Category</label>
+          <input type="text" name="category" class="form-control" value="<%= transaction.category %>" required>
+      </div>
+
+      <div class="mb-3">
+          <label>Type</label>
+          <select name="type" class="form-select" required>
+            <option value="income" <%= transaction.type === "income" ? "selected" : "" %>>Income</option>
+            <option value="expense" <%= transaction.type === "expense" ? "selected" : "" %>>Expense</option>
+          </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">Update Transaction</button>
+      <a href="/dashboard" class="btn btn-secondary w-100 mt-2">Cancel</a>
+
+  </form>
+</div>
+<footer class="footer mt-5 py-3 text-center">
+  <p class="mb-0">💰 Spend Wisely. Track Smartly.</p>
+  <small><b>Built with ❤️ by Divya!</b></small>
+</footer>

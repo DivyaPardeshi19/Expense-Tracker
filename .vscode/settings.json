@@ -1,0 +1,19 @@
+{
+  "files.associations": {
+    "*.ejs": "html"
+  },
+  "[ejs]": {
+    "editor.defaultFormatter": null,
+    "editor.formatOnSave": false
+  },
+  "emmet.includeLanguages": {
+    "ejs": "html"
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ]
+}
+
