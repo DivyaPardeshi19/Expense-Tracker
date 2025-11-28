@@ -12,8 +12,7 @@ import authRoutes from "./routes/authRoutes.js";
 import tranRoutes from "./routes/tranRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
 import { connectDB } from "./config/db.js";
-import User from "./models/user.js";
-import bcrypt from "bcryptjs";
+
 
 
 

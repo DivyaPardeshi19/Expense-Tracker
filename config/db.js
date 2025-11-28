@@ -9,10 +9,8 @@ export const connectDB = async () => {
       throw new Error("MONGO_URL is not defined in environment variables");
     }
 
-    await mongoose.connect(mongoUri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    // No options required in Mongoose v7+
+    await mongoose.connect(mongoUri);
 
     console.log("✅ MongoDB connected");
   } catch (err) {
@@ -20,3 +18,4 @@ export const connectDB = async () => {
     process.exit(1);
   }
 };
+
