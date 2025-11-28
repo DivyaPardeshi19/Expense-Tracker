@@ -1,4 +1,4 @@
-// routes/authRoutes.js
+
 import express from "express";
 import { registerUser, loginUser } from "../controllers/authController.js";
 
@@ -11,7 +11,7 @@ router.get("/login", (req, res) => res.render("login", { title: "Login", error: 
 // POST register
 router.post("/register", registerUser);
 
-// POST login
+//POST login
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -20,7 +20,11 @@ router.post("/login", async (req, res) => {
       return res.render("login", { title: "Login", error: "All fields are required" });
     }
 
+     console.log("Attempting login:", { email, password });
+
     const user = await loginUser(email, password);
+
+     console.log("User returned by loginUser:", user);
 
     if (!user) {
       return res.render("login", { title: "Login", error: "Invalid credentials" });
@@ -35,6 +39,8 @@ router.post("/login", async (req, res) => {
     res.render("login", { title: "Login", error: "Server Error" });
   }
 });
+
+
 
 // Logout
 router.get("/logout", (req, res) => {

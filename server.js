@@ -2,6 +2,7 @@ import express from "express";
 import { auth } from "./middleware/authMidd.js";
 import dotenv from "dotenv";
 import session from "express-session";
+import MongoStore from "connect-mongo";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -11,7 +12,8 @@ import authRoutes from "./routes/authRoutes.js";
 import tranRoutes from "./routes/tranRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
 import { connectDB } from "./config/db.js";
-
+import User from "./models/user.js";
+import bcrypt from "bcryptjs";
 
 
 
@@ -21,6 +23,7 @@ const app = express();
 // 🔹 Fix __dirname for ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
 
 
 // 🔹 EJS setup
@@ -40,6 +43,10 @@ app.use(
     secret: process.env.SESSION_SECRET || "mysecret",
     resave: false,
     saveUninitialized: false,
+     store: MongoStore.create({
+     mongoUrl: process.env.MONGO_URL, // your mongo URL
+     collectionName: "sessions",       // (optional)
+    }),
     cookie: { maxAge: 1000 * 60 * 60 * 24 } // 1 day
   })
 );
@@ -47,7 +54,6 @@ app.use(
 
 // 🔹 Connect MongoDB
 connectDB();
-
 
 // 🔹 API Routes (Postman / fetch) 
 app.use("/", authRoutes);

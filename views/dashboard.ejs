@@ -116,9 +116,12 @@
         <div class="nav-left">
             <a href="/dashboard" class="active">SPENDING OVERVIEW</a>
         </div>
-        <div class="nav-right">
-            <div class="user-badge"><%= user.name.charAt(0).toUpperCase() %></div>
-        </div>
+
+        <!-- Add this anywhere in your dashboard header or nav -->
+        <form action="/logout" method="GET" style="display:inline;">
+         <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+
     </nav>
 
     <div class="container mt-4 dashboard-container">
