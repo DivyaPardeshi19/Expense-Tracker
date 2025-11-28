@@ -1,3 +1,20 @@
+html, body {
+  height: 100%;
+  min-height: 100vh;   /* FULL HEIGHT OF SCREEN */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-wrapper {
+  flex: 1;              /* Takes remaining height */
+  min-height: 100vh;   /* Full height */
+}
+
 /* DARK MODE */
 body.dark-mode {
   background: #121212;
