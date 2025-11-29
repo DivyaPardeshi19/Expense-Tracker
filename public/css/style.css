@@ -17,6 +17,17 @@ html, body {
   margin-top: auto;
 }
 
+/* Make content always stretch */
+.content-area {
+  flex: 1; /* Takes all available height */
+}
+
+/* Mobile media fix */
+@media (max-width: 768px) {
+  .main-wrapper {
+    min-height: 100svh; /* Special mobile full height fix */
+  }
+}
 
 /* DARK MODE */
 body.dark-mode {
