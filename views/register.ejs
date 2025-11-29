@@ -70,6 +70,12 @@ body {
     .text-link {
         color: #00ff88;
     }
+    .page-center {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 }
 
 </style>
@@ -77,7 +83,7 @@ body {
 </head>
 <body>
 
-<div class="register-card">
+<div class="register-card page-center">
     <h2 class="text-center mb-4">Register</h2>
 
     <% if (error) { %>

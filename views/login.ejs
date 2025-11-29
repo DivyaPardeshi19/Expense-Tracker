@@ -89,13 +89,19 @@ input.form-control:focus {
     .text-link {
         color: #00ff88;
     }
+    .page-center {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 }
 </style>
 
 </head>
 <body>
 
-<div class="login-card">
+<div class="login-card page-center">
     <h2 class="text-center mb-4">Login</h2>
 
     <% if (error) { %>
