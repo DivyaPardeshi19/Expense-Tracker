@@ -1,33 +1,39 @@
 /* Make full-screen layout work */
+/* FULL HEIGHT PAGE FIX */
 html, body {
   height: 100%;
   margin: 0;
-  padding: 0;
 }
 
-/* Full height wrapper */
 .main-wrapper {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
-/* Force content to stretch */
 .content-area {
-  flex: 1;
+  flex: 1; /* TAKES FULL AVAILABLE HEIGHT */
+}
+
+/* FOOTER STICKS TO BOTTOM */
+.footer {
+  background: #343a40;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  margin-top: auto;
 }
 
 /* MOBILE FIX */
+/* For mobile screens */
 @media (max-width: 768px) {
   .main-wrapper {
-    min-height: 100svh; /* mobile safari fix */
+    min-height: 100vh;     /* fallback */
+    min-height: 100dvh;    /* dynamic viewport height */
+    min-height: 100svh;    /* safari mobile fix */
   }
 }
 
-
-.footer {
-  margin-top: auto;
-}
 
 
 /* DARK MODE */
