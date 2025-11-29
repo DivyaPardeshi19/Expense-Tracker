@@ -1,33 +1,31 @@
-h/* make whole page cover full mobile height */
+/* Make full-screen layout work */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
-/* Make the main container always fill screen */
+/* Full height wrapper */
 .main-wrapper {
-  min-height: 100vh;           /* FULL SCREEN */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Make footer stay at bottom */
-.footer {
-  margin-top: auto;
-}
-
-/* Make content always stretch */
+/* Force content to stretch */
 .content-area {
-  flex: 1; /* Takes all available height */
+  flex: 1;
 }
 
-/* Mobile media fix */
+/* MOBILE FIX */
 @media (max-width: 768px) {
   .main-wrapper {
-    min-height: 100svh; /* Special mobile full height fix */
+    min-height: 100svh; /* mobile safari fix */
   }
 }
+
+
+
 
 /* DARK MODE */
 body.dark-mode {
@@ -108,7 +106,7 @@ body.light-mode #chartContainer {
 
 
 
-/* 🌙 GLOBAL STYLING */
+/*  GLOBAL STYLING */
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
@@ -118,7 +116,7 @@ body {
 
 a { text-decoration: none; }
 
-/* 🌙 NAVBAR */
+/*  NAVBAR */
 .navbar {
   background: #1e1e1e;
   padding: 15px 40px;
@@ -145,7 +143,7 @@ a { text-decoration: none; }
   color: #00ff88;
 }
 
-/* 🌙 USER ICON */
+/*  USER ICON */
 .user-badge {
   width: 40px;
   height: 40px;
@@ -158,7 +156,7 @@ a { text-decoration: none; }
   cursor: pointer;
 }
 
-/* 🌙 BUTTONS */
+/*  BUTTONS */
 .btn {
   padding: 10px 18px;
   border: 1px solid #00ff88;
@@ -180,7 +178,7 @@ a { text-decoration: none; }
   background-color: red;
 }
 
-/* 🌙 CARD BOXES */
+/*  CARD BOXES */
 .card {
   background: #1e1e1e;
   padding: 20px;
@@ -194,14 +192,14 @@ a { text-decoration: none; }
   font-weight: 600;
 }
 
-/* 🌙 DASHBOARD GRID */
+/* DASHBOARD GRID */
 .dashboard-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
 }
 
-/* 🌙 CHART AREA */
+/*  CHART AREA */
 .chart-box {
   background: #1e1e1e;
   border-radius: 12px;
