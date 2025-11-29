@@ -1,24 +1,20 @@
 h/* make whole page cover full mobile height */
 html, body {
   height: 100%;
-  min-height: 100vh;
   margin: 0;
   padding: 0;
 }
 
-.main-container, .content-wrapper {
-  min-height: 100vh;    /* full height */
+/* Make the main container always fill screen */
+.main-wrapper {
+  min-height: 100vh;           /* FULL SCREEN */
   display: flex;
   flex-direction: column;
 }
 
-/* center box vertically and fill height */
-.login-container,
-.dashboard-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+/* Make footer stay at bottom */
+.footer {
+  margin-top: auto;
 }
 
 
