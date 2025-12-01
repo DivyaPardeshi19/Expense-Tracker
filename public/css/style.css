@@ -2,27 +2,25 @@
 /* FULL HEIGHT PAGE FIX */
 html, body {
   height: 100%;
+  min-height: 100vh;
   margin: 0;
+  padding: 0;
 }
 
 .main-wrapper {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+}
+
+.main-wrapper {
+  min-height: 100svh;
 }
 
 .content-area {
   flex: 1; /* TAKES FULL AVAILABLE HEIGHT */
 }
 
-/* FOOTER STICKS TO BOTTOM */
-.footer {
-  background: #343a40;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  margin-top: auto;
-}
 
 /* MOBILE FIX */
 /* For mobile screens */
@@ -34,7 +32,9 @@ html, body {
   }
 }
 
-
+.footer {
+  margin-top: auto;
+}
 
 /* DARK MODE */
 body.dark-mode {
