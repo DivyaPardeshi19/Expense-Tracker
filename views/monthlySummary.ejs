@@ -31,9 +31,9 @@
           <% monthlySummary.forEach(item => { %>
             <tr>
               <td><%= item.month %></td>
-              <td class="text-success">₹ <%= item.income.toLocaleString() %></td>
-              <td class="text-danger">₹ <%= item.expense.toLocaleString() %></td>
-              <td>₹ <%= item.balance.toLocaleString() %></td>
+              <td class="text-success">₹ <%= item.income %></td>
+              <td class="text-danger">₹ <%= item.expense %></td>
+              <td>₹ <%= item.balance %></td>
             </tr>
           <% }) %>
         </tbody>

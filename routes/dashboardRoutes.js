@@ -207,11 +207,12 @@ router.get("/monthlysummary", auth, async (req, res) => {
         incomeData.push(monthMap[mon].income);
         expenseData.push(monthMap[mon].expense);
         monthlySummary.push({
-          month: mon,
-          income: monthMap[mon].income,
-          expense: monthMap[mon].expense,
-          balance: monthMap[mon].income - monthMap[mon].expense
-        });
+        month: mon,
+        income: monthMap[mon].income.toLocaleString(),
+        expense: monthMap[mon].expense.toLocaleString(),
+        balance: (monthMap[mon].income - monthMap[mon].expense).toLocaleString()
+});
+
       });
 
     res.render("monthlysummary", { months, incomeData, expenseData, monthlySummary, title: "Monthly Summary" });
