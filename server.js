@@ -27,7 +27,7 @@ const __dirname = path.dirname(__filename);
 
 // 🔹 EJS setup
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(process.cwd(), "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true })); // parse form data
 app.use(express.json());
