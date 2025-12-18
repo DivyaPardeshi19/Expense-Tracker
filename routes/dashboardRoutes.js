@@ -175,15 +175,18 @@ router.post("/dashboard/transactions/delete/:id", auth, async (req, res) => {
 
 // GET Monthly Summary Page
 
+// GET Monthly Summary Page
 router.get("/monthlysummary", auth, async (req, res) => {
   try {
     const userId = req.session.userId;
     const transactions = await Transaction.find({ userId }).lean();
 
+    // Group transactions by month
     const monthMap = {};
     transactions.forEach(tx => {
       const date = new Date(tx.date);
       const month = date.toLocaleString("default", { month: "short", year: "numeric" });
+
       if (!monthMap[month]) monthMap[month] = { income: 0, expense: 0 };
 
       const amount = Number(tx.amount) || 0;
@@ -191,6 +194,7 @@ router.get("/monthlysummary", auth, async (req, res) => {
       if (type === "income" || type === "expense") monthMap[month][type] += amount;
     });
 
+    // Prepare arrays for EJS and Chart.js
     const months = [];
     const incomeData = [];
     const expenseData = [];
@@ -206,21 +210,23 @@ router.get("/monthlysummary", auth, async (req, res) => {
         months.push(mon);
         incomeData.push(monthMap[mon].income);
         expenseData.push(monthMap[mon].expense);
+
         monthlySummary.push({
-        month: mon,
-        income: monthMap[mon].income.toLocaleString(),
-        expense: monthMap[mon].expense.toLocaleString(),
-        balance: (monthMap[mon].income - monthMap[mon].expense).toLocaleString()
+          month: mon,
+          income: monthMap[mon].income.toLocaleString(),
+          expense: monthMap[mon].expense.toLocaleString(),
+          balance: (monthMap[mon].income - monthMap[mon].expense).toLocaleString()
+        });
       });
 
-      });
-
-    res.render("monthlysummary", { months, incomeData, expenseData, monthlysummary: monthlySummary, title: "Monthly Summary" });
+    // Render the EJS page with camelCase
+    res.render("monthlysummary", { months, incomeData, expenseData, monthlySummary, title: "Monthly Summary" });
 
   } catch (err) {
     console.error(err);
     res.status(500).send("Server Error");
   }
 });
+
 
 export default router;
