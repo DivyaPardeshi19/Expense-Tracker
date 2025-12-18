@@ -23,8 +23,8 @@ const app = express();
 
 //  EJS setup
 app.set("view engine", "ejs");
-app.set("views", path.join(process.cwd(), "views")); // use project root
-app.use(express.static(path.join(process.cwd(), "public"))); // fix static path
+app.set("views", path.join(process.cwd(), "views")); // project root
+app.use(express.static(path.join(process.cwd(), "public"))); //  static path
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
