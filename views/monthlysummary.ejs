@@ -28,15 +28,21 @@
           </tr>
         </thead>
         <tbody>
-          <% monthlysummary.forEach(item => { %>
-            <tr>
-              <td><%= item.month %></td>
-              <td class="text-success">₹ <%= item.income %></td>
-              <td class="text-danger">₹ <%= item.expense %></td>
-              <td>₹ <%= item.balance %></td>
-            </tr>
-          <% }) %>
-        </tbody>
+          <% if (monthlySummary && monthlySummary.length > 0) { %>
+          <% monthlySummary.forEach(item => { %>
+       <tr>
+      <td><%= item.month %></td>
+      <td class="text-success">₹ <%= item.income %></td>
+      <td class="text-danger">₹ <%= item.expense %></td>
+      <td>₹ <%= item.balance %></td>
+    </tr>
+  <% }) %>
+<% } else { %>
+  <tr>
+    <td colspan="4" class="text-center">No data available</td>
+  </tr>
+<% } %>
+
       </table>
     </div><br>
 
